@@ -5,6 +5,8 @@ A minimal, fast PDF text extractor for macOS.
 ![macOS](https://img.shields.io/badge/macOS-26%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 
+![TinyPDF screenshot](screenshot.png)
+
 ## Features
 
 - **Side-by-side layout** — extracted text alongside the rendered PDF pages
