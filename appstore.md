@@ -3,7 +3,7 @@
 ## App Information
 
 - **App Name**: TinyPDF
-- **Subtitle** (30 chars max): Extract text from any PDF
+- **Subtitle** (30 chars max): A fast PDF text extractor
 - **Bundle ID**: com.tinypdf.app
 - **SKU**: tinypdf-001
 - **Primary Language**: English (U.S.)
@@ -34,12 +34,15 @@ Features:
 - Multiple independent windows
 - Light and dark mode — follows your system
 - Opens .pdf files directly from Finder
+- On-device AI assistant (Cmd+K) — ask questions, summarize, explain. Runs via CoreML, no API key required
 
 Built entirely with native macOS technologies — PDFKit for rendering, Vision for OCR. No Electron. No cloud APIs. Your documents never leave your machine.
 
+Part of TinySuite — a family of native macOS micro-tools that each do one thing well. Every app is built around the file, not around itself. No accounts, no cloud, no lock-in. Open your file, understand it, act on it. Learn more at tinysuite.app.
+
 ### Keywords (100 chars max, comma-separated)
 
-pdf,text,extract,ocr,reader,markdown,export,scan,document,viewer
+pdf,text,extract,ocr,reader,markdown,export,scan,tinysuite,viewer
 
 ### What's New (Version 1.0.0)
 
@@ -55,14 +58,11 @@ https://github.com/michellzappa/tinypdf/issues
 
 ### Marketing URL (optional)
 
-https://github.com/michellzappa/tinypdf
+https://tinysuite.app
 
 ### Privacy Policy URL (required)
 
-<!-- You need a privacy policy URL even if the app collects no data. -->
-<!-- Example: https://michellzappa.github.io/tinypdf/privacy -->
-
-TODO: Create a simple privacy policy page stating the app collects no data.
+https://tinysuite.app/privacy.html
 
 ## Privacy Details
 

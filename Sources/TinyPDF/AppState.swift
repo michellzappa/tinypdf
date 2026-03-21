@@ -15,6 +15,16 @@ final class AppState: FileState {
         )
     }
 
+    private static let spotlightDomain = "com.tinyapps.tinypdf.files"
+
+    override func didOpenFile(_ url: URL) {
+        SpotlightIndexer.index(file: url, content: content, domainID: Self.spotlightDomain)
+    }
+
+    override func didSaveFile(_ url: URL) {
+        didOpenFile(url)
+    }
+
     // Disable auto-save — writing text back to .pdf would corrupt it
     override var shouldAutoSave: Bool { false }
 
