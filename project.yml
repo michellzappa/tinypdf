@@ -1,0 +1,63 @@
+name: TinyPDF
+options:
+  bundleIdPrefix: com.tinypdf
+  deploymentTarget:
+    macOS: "26.0"
+  xcodeVersion: "16.0"
+
+packages:
+  TinyKit:
+    path: Packages/TinyKit
+
+targets:
+  TinyPDF:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/TinyPDF
+        excludes:
+          - "Resources"
+      - path: Sources/TinyPDF/Resources/Assets.xcassets
+        buildPhase: resources
+      - path: Sources/TinyPDF/Resources/AppIcon.icon
+        buildPhase: resources
+      - path: Sources/TinyPDF/Resources/DocIcons
+        buildPhase: resources
+    info:
+      path: Sources/TinyPDF/Info.plist
+      properties:
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: PDF Document
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            CFBundleTypeIconFile: doc_pdf
+            LSItemContentTypes:
+              - com.adobe.pdf
+            CFBundleTypeExtensions:
+              - pdf
+        LSApplicationCategoryType: public.app-category.productivity
+        NSMicrophoneUsageDescription: "TinyPDF uses the microphone for voice-to-text input in the AI command bar."
+        NSSpeechRecognitionUsageDescription: "TinyPDF uses on-device speech recognition for voice-to-text input."
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.tinypdf.app
+        PRODUCT_NAME: "TinyPDF"
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: YES
+        ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES: ""
+        INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.productivity"
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "26.0"
+        DEVELOPMENT_TEAM: 992N457T8D
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "Apple Development"
+        CODE_SIGN_ENTITLEMENTS: TinyPDF.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+        SKIP_INSTALL: NO
+        INSTALL_PATH: /Applications
+    dependencies:
+      - package: TinyKit
+        product: TinyKit

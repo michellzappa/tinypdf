@@ -11,6 +11,8 @@
 			<array>
 				<string>pdf</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>doc_pdf</string>
 			<key>CFBundleTypeName</key>
 			<string>PDF Document</string>
 			<key>CFBundleTypeRole</key>

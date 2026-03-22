@@ -1,6 +1,6 @@
 # TinyPDF
 
-A minimal, fast PDF text extractor for macOS.
+A native macOS PDF text extractor. See pages and extracted text side by side. Runs OCR on scans automatically. Export to Markdown.
 
 ![macOS](https://img.shields.io/badge/macOS-26%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)

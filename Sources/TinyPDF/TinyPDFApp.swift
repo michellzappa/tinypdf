@@ -1,6 +1,7 @@
 import SwiftUI
 import AppKit
 import TinyKit
+import UniformTypeIdentifiers
 
 // MARK: - FocusedValue key for per-window AppState
 
@@ -39,12 +40,29 @@ struct TinyPDFApp: App {
                 Button("Welcome to TinyPDF") {
                     NotificationCenter.default.post(name: .showWelcome, object: nil)
                 }
+                Divider()
+                Button("Feedback\u{2026}") {
+                    NSWorkspace.shared.open(URL(string: "https://tinysuite.app/support.html")!)
+                }
+                Button("TinySuite Website") {
+                    NSWorkspace.shared.open(URL(string: "https://tinysuite.app")!)
+                }
+            }
+
+            CommandGroup(replacing: .help) {
+                Button("TinyPDF on GitHub") {
+                    NSWorkspace.shared.open(URL(string: "https://github.com/michellzappa/tinypdf")!)
+                }
             }
 
             CommandGroup(after: .newItem) {
                 OpenFileButton()
 
                 OpenFolderButton()
+
+                RecentFilesMenu { url in
+                    activeState?.selectFile(url)
+                }
 
                 Divider()
 
@@ -72,6 +90,9 @@ struct WindowContentView: View {
 
     var body: some View {
         ContentView(state: state, columnVisibility: $columnVisibility)
+            .defaultAppBanner(appName: "TinyPDF", associations: [
+                FileTypeAssociation(utType: .pdf, label: ".pdf files"),
+            ])
             .navigationTitle(state.selectedFile?.lastPathComponent ?? "TinyPDF")
             .focusedSceneValue(\.appState, state)
             .onAppear {
@@ -100,13 +121,14 @@ struct WindowContentView: View {
             .welcomeSheet(
                 isPresented: $showWelcome,
                 appName: "TinyPDF",
-                subtitle: "A tiny PDF text extractor",
+                subtitle: "A minimal, fast PDF text extractor for macOS.",
                 features: [
                     ("folder", "Open a Folder", "Browse PDF files from the sidebar."),
                     ("doc.text.magnifyingglass", "Extract Text", "Instantly extract readable text from any PDF."),
                     ("rectangle.split.2x1", "PDF Preview", "Side-by-side extracted text and original PDF."),
                 ],
-                onOpen: { state.openFolder() },
+                onOpenFolder: { state.openFolder() },
+                onOpenFile: { state.openFile() },
                 onDismiss: { state.restoreLastFolder() }
             )
             .background(WindowCloseGuard(state: state))
