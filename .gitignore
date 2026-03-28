@@ -1,5 +1,12 @@
 .build/
 *.xcodeproj/
+!TinyPDF.xcodeproj/
+!TinyPDF.xcodeproj/project.pbxproj
+!TinyPDF.xcodeproj/project.xcworkspace/
+!TinyPDF.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+!TinyPDF.xcodeproj/xcshareddata/
+!TinyPDF.xcodeproj/xcshareddata/xcschemes/
+!TinyPDF.xcodeproj/xcshareddata/xcschemes/TinyPDF.xcscheme
 DerivedData/
 .DS_Store
 .swiftpm/

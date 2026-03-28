@@ -61,3 +61,9 @@ targets:
     dependencies:
       - package: TinyKit
         product: TinyKit
+
+schemes:
+  TinyPDF:
+    build:
+      targets:
+        TinyPDF: all
