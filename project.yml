@@ -26,6 +26,8 @@ targets:
     info:
       path: Sources/TinyPDF/Info.plist
       properties:
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         CFBundleDocumentTypes:
           - CFBundleTypeName: PDF Document
             CFBundleTypeRole: Viewer
