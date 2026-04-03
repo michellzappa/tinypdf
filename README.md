@@ -32,6 +32,8 @@ A native macOS PDF text extractor. See pages and extracted text side by side. Ru
 ## Build
 
 ```bash
+xcodegen generate --spec project.yml
+
 xcodebuild clean build \
   -project TinyPDF.xcodeproj \
   -scheme TinyPDF \
@@ -39,7 +41,9 @@ xcodebuild clean build \
   -derivedDataPath /tmp/tinybuild/tinypdf \
   CODE_SIGN_IDENTITY="-"
 
+rm -rf /Applications/TinyPDF.app
 cp -R /tmp/tinybuild/tinypdf/Build/Products/Release/TinyPDF.app /Applications/
+xattr -cr /Applications/TinyPDF.app
 ```
 
 ## Keyboard Shortcuts
